@@ -1,0 +1,38 @@
+dcpct-ts@189.cn
+last fri to this thur
+2022-04-14 | 94507920 | 93725166 | 99.1718%
+2022-04-13 | 95006692 | 94241923 | 99.1951%
+2022-04-12 | 95615483 | 94782075 | 99.1284%
+2022-04-11 | 93464790 | 92669587 | 99.1492%
+2022-04-10 | 89315209 | 88577372 | 99.1739%
+2022-04-09 | 75920606 | 75322790 | 99.2126%
+2022-04-08 | 92589125 | 91801191 | 99.1490%
+
+
+667696567
+
+PSA
+2022-04-14	133890068	121994033	91.12%
+2022-04-13	137366839	125474823	91.34%
+2022-04-12	136221550	124317480	91.26%
+2022-04-11	136004900	124249776	91.36%
+2022-04-10	132498241	120935853	91.27%
+2022-04-09	123488245	111736463	90.48%
+2022-04-08	131811181	119856473	90.93%
+
+891213489
+
+SM
+    SELECT COUNT(*) FROM (SELECT a.wkno,a.province_name,a.city_name,a.ch_NAME,a.create_date,a.acconsim,a.activeSIM,a.simhastraffic,a.newactiveSIM,ROUND(a.traffic_sum/1024/1024/1024,3),a.accopensim,a.p_terminatedsim,
+    SUM(CASE WHEN (b.STATE_LOCKED='1' and b.SIM_SUBSCRIPTION_STATE <>'TERMINATED'
+    and b.SIM_SUBSCRIPTION_STATE <>'TERMINATED_PENDING') THEN 1 ELSE 0 END) LOCKEDSIM
+    FROM GNOC.NEW_GNOC_ENT_WEEKLY_T a, smapp.subscription b
+    WHERE a.if_commerical = 1  AND a.wkno=to_char(SYSDATE,'yyyy')||'W'||to_char(SYSDATE,'iw')
+    and a.COMPANY_ID=b.company_id(+)
+    group by a.wkno,a.province_name,a.city_name,a.ch_NAME,a.create_date,a.acconsim,a.activeSIM,a.simhastraffic,a.newactiveSIM,ROUND(a.traffic_sum/1024/1024/1024,3),a.accopensim,a.p_terminatedsim
+    order by 2)
+ 652
+
+667696567 891213489  1558910056 648
+DCP侧 636419825 SI侧 931281024  总调用量 1549116625 正式企业数 652
+

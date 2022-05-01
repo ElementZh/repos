@@ -1,0 +1,85 @@
+dcp2.0 订单管理 订单查询 输入编号
+母企业省份：
+浙江省
+母企业CrmCustId：
+993600980001216888
+母企业名称：
+北极无限（北京）文化有限责任公司
+母企业2.0侧CustId：
+9930001188718
+母企业DcpCustId：
+57000125
+子企业省份：
+浙江省
+子企业名称：
+北极无限-物云融合
+子企业2.0侧Id：
+9930004758398
+
+copy企业名称 跳转到noc岗配置 定位工单与详细需求
+
+请为北极无限（北京）文化有限责任公司配置，创建子企业（子企业名称：北极无限-物云融合）
+参考主企业填入除协议编号（+1）以外所有相同信息
+    select * from dcp_si_organization_inf where cust_name in ('北极无限（北京）文化有限责任公司','北极无限-物云融合');
+-----si side sync--------
+select * from dcp_si_organization_inf where cust_name in ('北极无限（北京）文化有限责任公司','北极无限-物云融合');
+#after found 2 rows,go on ,sm sync to si db ervey clock per hour IF NOT FIND COLIN
+#change the sub EP's group id as same as parent EP's,commit
+select * from dcp_si_organization_inf where cust_name in ('北极无限（北京）文化有限责任公司','北极无限-物云融合');
+北极无限（北京）文化有限责任公司#record two eps‘ name and epid
+57000125
+北极无限-物云融合
+57000184
+#add new row to dcp.dcp_si_api_group_inf as parent epid,parent epname,sub epid,sub epname；commit
+select * from dcp.dcp_si_api_group_inf where parent = 57000125; #check if result exists
+
+
+16778607 16778615  创建子企业 @element 
+16778607
+审批说明： 请为济南索迪信息技术有限公司(济宁市)配置，创建子企业（子企业名称：济南索迪1） 
+母企业省份： 16498383936810000000
+山东省
+母企业CrmCustId：
+991700980002734579
+母企业名称：
+济南索迪信息技术有限公司(济宁市)
+母企业2.0侧CustId：
+9930004828398
+母企业DcpCustId：
+54000215
+子企业省份：
+山东省
+子企业名称：
+济南索迪1
+子企业2.0侧Id：
+9930004835607
+
+16778615 
+请为济南索迪信息技术有限公司(济宁市)配置，创建子企业（子企业名称：济南索迪2） 
+母企业省份：
+山东省
+母企业CrmCustId：
+991700980002734579
+母企业名称：
+济南索迪信息技术有限公司(济宁市)
+母企业2.0侧CustId：
+9930004828398
+母企业DcpCustId：
+54000215
+子企业省份：
+山东省
+子企业名称：
+济南索迪2
+子企业2.0侧Id：
+9930004835610
+54000215 济南索迪信息技术有限公司(济宁市)
+54000216 济南索迪1
+54000217 济南索迪2
+
+
+
+
+
+
+
+

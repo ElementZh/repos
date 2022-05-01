@@ -1,0 +1,29 @@
+安徽增加30万DCP14108号资源：1410840900000——1410841199999  
+浙江增加30万DCP14108号资源：1410841200000——1410841499999
+portal- 资源-sim规格-号码规划方案
+SM:Select * from smapp.nm_msisdn_pool where company_id='31000001'#POOLID
+select * from smapp.nm_msisdn_store where poolid like '%C$(Province)%'#查是否冲突 无记录即可
+SOAPUI-storeMsisdnRange-FF-xtoken
+success后再select * from smapp.nm_msisdn_store where poolid like '%C$(Province)%'##日期排序 有即可
+
+
+1|11、包含 IMSI、MSISDN range
+from附件&portal- 资源-sim规格-号码规划方案
+Select * from smapp.nm_msisdn_pool where company_id='$companyID';----get poolID
+若无对应POOL_DESC则需新建POOL并在Pool中新建dn(可一步完成)即storePOOLInfomation，若有则进行storeDNrange并填入对应poolID,此为前者范例
+select * from smapp.nm_msisdn_store where poolid like 'latestpoolID' ----wrong if exists
+<shortName>CT_JX_149_Vehicle</shortName>
+省份	起始号码	终止号码	数量（万）
+上海	14986000000	14986199999	20 |get from portal:CSH Scheme Vehicle 149 (CSHSCHEME00904) 50000001
+北京	14986200000	14986699999	50 |get from portal:CBJ Scheme Vehicle 149 (CBJSCHEME00841) 30000001
+江西	14986700000	14986709999	1  |get from portal:CJX Scheme Vehicle 149 (CJXSCHEME00902) 44000001
+湖北	14986710000	1498671999	1  |get from portal:CHB Scheme Vehicle 149 (CHBSCHEME00921) 45000001
+select * from smapp.nm_msisdn_store where poolid like 'latestpoolID' ---check success
+
+浙江增加10万DCP14108号资源： 1410841500000 1410841599999;storeDNrange
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+#  REQ300807546806  REQ300807547003
+#  REQ300807546881 (DEVICE_RECONNECT)
+#  CHANGE_SUBSCRIPTIONSTATE_PARENT REQ300807864429
+#  CHANGE_SUBSCRIPTIONSTATE_PARENT REQ300809194965
+db.getCollection('jobs').update({"_id":"REQ300809194965"},{$set:{"status":"COMPLETED_W_VALIDATION_ERRORS"}})
+db.getCollection('jobResources').updateMany({"jobId":"REQ300809194965"},{$set:{"status":"COMPLETED_W_VALIDATION_ERRORS"}}) 
+# REQ300808146137 
+db.getCollection('jobs').update({"_id":"REQ300809571639"},{"$set":{"status":"COMPLETED"}})
+
+db.getCollection('jobResources').updateMany({"jobId":"REQ300808146137"},{$set:{"status":"status":"COMPLETED"}}) 
+# change status to COMPLETED
+
+
+

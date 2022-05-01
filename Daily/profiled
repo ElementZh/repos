@@ -1,0 +1,19 @@
+SDW2022032310194772 烦请帮忙提取北纬蜂巢及北京九天DCP全量订购包数据，
+客户名称：北京北纬蜂巢物联科技有限公司、北京九天盛信信息技术有限责任公司、九天盛信-WH01、九天盛信-WH02，
+提取字段：订购包id，订购包描述，卡数，价格属性，价格属性描述，数据日期。@石锐超 @element 
+
+select b.name,a.ENTERPRISE_ID,a.SUBSCRIPTION_PACKAGE_NAME,a.PACKAGE_STATUS,a.DESCRIPTION,a.PRICE_PROFILE_NAME,c.description
+from SMAPP.SUBSCRIPTION_PACKAGE a, SMAPP.COMPANY b ,dwh_op_data.AC_PRICE_PLAN_COMPONENT@DWH_PUB c
+
+where a.enterprise_id = b.COMPANY_ID and a.price_profile_name = c.COMPONENT_NAME and a.SUBSCRIPTION_PACKAGE_ID=d.SUBSCRIPTION_PACKAGE_ID a.enterprise_id=31000028
+
+group by b.name,a.ENTERPRISE_ID,a.SUBSCRIPTION_PACKAGE_NAME,a.PACKAGE_STATUS,a.DESCRIPTION,a.PRICE_PROFILE_NAME,c.description;
+
+SDW2022033116324446 深圳市兰华物联科技有限公司DCP号码拆机申请  深圳市兰华物联科技有限公司是我司于2019年拓展而来的政企客户，与我司进行物联网业务合作。后来该客户因业务发展方向转变，
+与我司业务合作需求逐少，至2021年3月，该客户缴清所有与我司物联网合作业务所有费用。 但经调查，自2021年9月起，在CRM系统上查询到客户名下依然出账：物联网APN功能费1元/月，截止至今已出费8元。
+由于客户与我司已无后续业务往来，申请关停该客户名下所有DCP业务。 具体信息如下： 客户智机通接入号：WLW07528145650120823406 账户ID：9951001126721 用户号码：2000035590 帐项目ID：100000051 
+收费类型及名称：物联网APN功能费 前台查看该号码已经拆机，但系统仍按每月1元出账。现申请确认2000035590号码在后台是否还存在，若存在申请予以拆机。 @element @石锐超 
+
+
+
+SDW20220331163244@element 做过的单子，客户要求删除portal中4个订购包，@王刚 顺便帮着double下，感谢
